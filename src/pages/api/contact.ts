@@ -8,7 +8,6 @@ export default function handler(
 ) {
   try {
     const data = sendMessageSchema.parse(request.body);
-    console.log(data);
 
     response.status(200).json({ message: "Message sent successfully!" });
   } catch (error: any) {

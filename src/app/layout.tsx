@@ -23,7 +23,11 @@ export const metadata: Metadata = {
       {
         url: "/images/logo_icon.png",
       },
+      {
+        url: "/images/logo_icon_1200x630.png",
+      },
     ],
+    siteName: "Ayomide Osunsami | Software Engineer",
   },
   twitter: {
     card: "summary_large_image",
@@ -35,6 +39,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/logo_icon.png",
+      },
+      {
+        url: "/images/logo_icon_1200x630.png",
       },
     ],
   },
