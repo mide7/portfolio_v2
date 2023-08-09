@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/public/images/logo_icon.png",
+        url: "/images/logo_icon.png",
       },
     ],
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     // type: "website",
     images: [
       {
-        url: "/public/images/logo_icon.png",
+        url: "/images/logo_icon.png",
       },
     ],
   },
