@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'remixicon/fonts/remixicon.css';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: url("../../public/svgs/LooperGroup.svg") no-repeat;
+  background-size: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.no-scroll-bar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.no-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.icon-links>svg>path {
+  fill: #0D446C
+}
+
+.icon-links:hover>svg>path {
+  fill: #0d446cbe
+}

@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ayomide's Portfolio Website
 
-## Getting Started
+Welcome to my portfolio website! I'm a passionate and versatile full-stack developer with expertise in building robust web applications. This portfolio showcases my skills, projects, and experience in both front-end and back-end development.
 
-First, run the development server:
+## About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+I thrive on solving complex problems and turning innovative ideas into reality. With a strong foundation in both front-end and back-end technologies, I bring a holistic approach to every project I work on. My goal is to create seamless, user-friendly, and performant applications that deliver exceptional user experiences.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Skills
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Front-End: HTML, CSS, JavaScript, React, Next.js
+- Back-End: Node.js, Express.js
+- Databases: MongoDB, PostgreSQL, MySQL
+- Version Control: Git, GitHub
+- Deployment: Heroku, Netlify, Vercel, Render
+- Other Tools: RESTful APIs, GraphQL, Redis, Web socket
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Projects
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Here are some of my notable projects:
 
-## Learn More
+1. [Project Name](project-link): A brief description of the project and the technologies used.
 
-To learn more about Next.js, take a look at the following resources:
+2. [Project Name](project-link): Highlighting the significance of the project and my contributions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. [Project Name](project-link): Overview of the project's features and technical implementation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Experience
 
-## Deploy on Vercel
+### DotCircleLabs - Software Engineer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Worked on [Project Name], where I [brief description of your role and contributions].
+- Collaborated with cross-functional teams to design and implement new features.
+- Improved application performance by optimizing database queries and front-end rendering.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Ribbon Blockchain - Front-End Developer
+
+- Assisted in developing the user interface for [Project Name], contributing to a more engaging user experience.
+- Collaborated with designers to ensure consistent and responsive designs across different devices.
+
+## Contact Me
+
+I'm open to collaborations, new projects, and networking opportunities. Feel free to reach out to me through the following channels:
+
+- Email: [imharyomide@gmail.com](mailto:imharyomide@gmail.com)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/ayomide-osunsami-6440021b0/)
+- Portfolio Website: [Your Portfolio Website](https://www.ayomidepeter.com)
+
+Let's connect and create amazing software solutions together!
+
+---
