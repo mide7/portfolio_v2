@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/logo_icon_32x32.png",
-        width: 32,
-        height: 32,
+        url: "/images/logo_icon_1200x630.png",
+        height: 630,
+        width: 1200,
       },
       {
         url: "/images/logo_icon_192x108.png",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
         height: 108,
       },
       {
-        url: "/images/logo_icon_1200x630.png",
-        height: 630,
-        width: 1200,
+        url: "/images/logo_icon_32x32.png",
+        width: 32,
+        height: 32,
       },
     ],
     siteName: "Ayomide Osunsami | Software Engineer",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     // type: "website",
     images: [
       {
-        url: "/images/logo_icon_32x32.png",
-        width: 32,
-        height: 32,
+        url: "/images/logo_icon_1200x630.png",
+        height: 630,
+        width: 1200,
       },
       {
         url: "/images/logo_icon_192x108.png",
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
         height: 108,
       },
       {
-        url: "/images/logo_icon_1200x630.png",
-        height: 630,
-        width: 1200,
+        url: "/images/logo_icon_32x32.png",
+        width: 32,
+        height: 32,
       },
     ],
   },
