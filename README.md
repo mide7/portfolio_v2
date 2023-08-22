@@ -44,7 +44,7 @@ I'm open to collaborations, new projects, and networking opportunities. Feel fre
 
 - Email: [ayomideosunsami@gmail.com](mailto:ayomideosunsami@gmail.com)
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/ayomide-osunsami-6440021b0/)
-- Portfolio Website: [My Portfolio Website](https://www.ayomide-osunsami.vercel.app)
+- Portfolio Website: [My Portfolio Website](https://ayomide-osunsami.vercel.app)
 
 Let's connect and create amazing software solutions together!
 
