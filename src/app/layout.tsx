@@ -1,3 +1,4 @@
+import ToastProvider from "@/components/providers/toast";
 import "@/styles/globals.scss";
 import { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
@@ -72,7 +73,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className}`}>{children}</body>
+      <body className={`${font.className}`}>
+        <ToastProvider>{children}</ToastProvider>
+      </body>
     </html>
   );
 }

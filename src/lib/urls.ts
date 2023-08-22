@@ -5,7 +5,7 @@ export const urls = {
   external: {
     me: {
       tel: "tel:+2348130542804",
-      email: "mailto:imharyomide@gmail.com",
+      email: "mailto:ayomideosunsami@gmail.com",
       twitter: "https://twitter.com/im_haryo",
       linkedin: "https://www.linkedin.com/in/ayomide-osunsami-6440021b0/",
       github: "https://github.com/mide7",

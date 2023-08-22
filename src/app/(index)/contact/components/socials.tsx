@@ -24,7 +24,7 @@ export default function ContactSocials() {
       />
       <SocialLinkAndIcon
         href={urls.external.me.email}
-        title={"imharyomide@gmail.com"}
+        title={"ayomideosunsami@gmail.com"}
         iconClass={"ri-mail-fill"}
         linkStyle={"font-medium active:motion-safe:animate-ping"}
       />

@@ -1,7 +1,10 @@
 namespace NodeJS {
   interface ProcessEnv {
-    NEXT_PUBLIC_BASE_URL: string;
-    // NEXT_PUBLIC_ARTIST_URL: string;
-    // NEXT_PUBLIC_QUERY_REFRESH: number;
+    MAIL_HOST: string;
+    MAIL_PORT: number;
+    MAIL_USER: string;
+    MAIL_PASSWORD: string;
+    MAIL_FROM: string;
+    MAIL_TO: string;
   }
 }
