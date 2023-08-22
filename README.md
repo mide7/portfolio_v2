@@ -15,7 +15,7 @@ I thrive on solving complex problems and turning innovative ideas into reality. 
 - Deployment: Heroku, Netlify, Vercel, Render
 - Other Tools: RESTful APIs, GraphQL, Redis, Web socket
 
-## Projects
+<!-- ## Projects
 
 Here are some of my notable projects:
 
@@ -36,15 +36,15 @@ Here are some of my notable projects:
 ### Ribbon Blockchain - Front-End Developer
 
 - Assisted in developing the user interface for [Project Name], contributing to a more engaging user experience.
-- Collaborated with designers to ensure consistent and responsive designs across different devices.
+- Collaborated with designers to ensure consistent and responsive designs across different devices. -->
 
 ## Contact Me
 
 I'm open to collaborations, new projects, and networking opportunities. Feel free to reach out to me through the following channels:
 
-- Email: [imharyomide@gmail.com](mailto:imharyomide@gmail.com)
+- Email: [ayomideosunsami@gmail.com](mailto:ayomideosunsami@gmail.com)
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/ayomide-osunsami-6440021b0/)
-- Portfolio Website: [Your Portfolio Website](https://www.ayomidepeter.com)
+- Portfolio Website: [My Portfolio Website](https://www.ayomide-osunsami.vercel.app)
 
 Let's connect and create amazing software solutions together!
 
