@@ -35,7 +35,7 @@ export default function SingleTestimonial({
       <Image
         src={image}
         alt={"client testimonial"}
-        className={"rounded-full object-scale-down self-center"}
+        className={"rounded-full object-scale-down self-center max-w-[8rem]"}
       />
       <div className="text-center">
         <h2 className="text-primaryBlue text-sm">{fullName}</h2>
