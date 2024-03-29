@@ -16,14 +16,14 @@ const recent_works = [
 		alt: "DotCircleLabs",
 		background_color: "#aad3cb",
 	},
-	{
-		title: "Cart All",
-		summary: "Web App",
-		href: urls.external.cartall,
-		image_src: CartAll,
-		alt: "DotCircleLabs",
-		background_color: "#A0DCFF",
-	},
+	// {
+	// 	title: "Cart All",
+	// 	summary: "Web App",
+	// 	href: urls.external.cartall,
+	// 	image_src: CartAll,
+	// 	alt: "DotCircleLabs",
+	// 	background_color: "#A0DCFF",
+	// },
 	{
 		title: "Daniola",
 		summary: "Web App",
