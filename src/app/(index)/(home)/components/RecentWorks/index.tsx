@@ -3,7 +3,7 @@ import React from "react";
 import DotCircle from "@/public/images/dotcirclelabs.webp";
 import Ribbon from "@/public/images/ribbonprotocol.webp";
 import Daniola from "@/public/images/daniola.webp";
-import CartAll from "@/public/images/cartall.webp";
+// import CartAll from "@/public/images/cartall.webp";
 import Link from "next/link";
 import { urls } from "@/lib/urls";
 
@@ -53,7 +53,11 @@ export default function RecentWorks() {
 				<div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
 					{recent_works.map((x, i) => (
 						<div key={i}>
-							<Link href={x.href} target="_blank">
+							<Link
+								href={x.href}
+								target="_blank"
+								className="[&>div>img]:hover:scale-[1.2] lg:[&>div>img]:hover:scale-[1.18]"
+							>
 								<div
 									style={{
 										backgroundColor: x.background_color,
@@ -63,7 +67,7 @@ export default function RecentWorks() {
 									<Image
 										src={x.image_src}
 										alt={x.alt}
-										className="rounded-lg"
+										className="rounded-lg transition-all duration-500"
 									/>
 								</div>
 							</Link>
