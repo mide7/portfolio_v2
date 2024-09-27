@@ -21,7 +21,7 @@ export default function ContactForm() {
 
 	const onSubmit = handleSubmit(async (data) => {
 		try {
-			const res = await fetch("/api/contacts", {
+			const res = await fetch("/api/contact", {
 				method: "POST",
 				body: JSON.stringify(data),
 				headers: {
