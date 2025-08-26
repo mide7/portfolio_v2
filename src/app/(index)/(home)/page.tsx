@@ -1,7 +1,7 @@
-import Clients from "./components/Clients";
-import Hero from "./components/Hero";
-import RecentWorks from "./components/RecentWorks";
-import Testimonials from "./components/Testimonials";
+import Clients from "./components/clients";
+import Hero from "./components/hero";
+import RecentWorks from "./components/recent-works";
+import Testimonials from "./components/testimonials";
 
 const Page = () => {
 	return (

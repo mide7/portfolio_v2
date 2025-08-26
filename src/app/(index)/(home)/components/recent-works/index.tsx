@@ -2,12 +2,30 @@ import Image from "next/image";
 import React from "react";
 import DotCircle from "@/public/images/dotcirclelabs.webp";
 import Ribbon from "@/public/images/ribbonprotocol.webp";
-import Daniola from "@/public/images/daniola.webp";
+// import Daniola from "@/public/images/daniola.webp";
 // import CartAll from "@/public/images/cartall.webp";
+import MyGigSpot from "@/public/images/mygigspot.webp";
+import MyGigSpotEntertainer from "@/public/images/mygigspot-entertainer.webp";
 import Link from "next/link";
 import { urls } from "@/lib/urls";
 
 const recent_works = [
+	{
+		title: "MyGigSpot",
+		summary: "Web App",
+		href: urls.external.mygigspot,
+		image_src: MyGigSpot,
+		alt: "MyGigSpot",
+		background_color: "#5B016741",
+	},
+	{
+		title: "MyGigSpot Entertainer",
+		summary: "Web App",
+		href: urls.external.mygigspot_entertainer,
+		image_src: MyGigSpotEntertainer,
+		alt: "MyGigSpot Entertainer",
+		background_color: "#F2641941",
+	},
 	{
 		title: "DotCircleLabs",
 		summary: "Web App",
@@ -24,14 +42,15 @@ const recent_works = [
 	// 	alt: "DotCircleLabs",
 	// 	background_color: "#A0DCFF",
 	// },
-	{
-		title: "Daniola",
-		summary: "Web App",
-		href: urls.external.daniola,
-		image_src: Daniola,
-		alt: "Daniola",
-		background_color: "#FDD9D9",
-	},
+	// NOTE: They changed the application and the link is not working anymore
+	// {
+	// 	title: "Daniola",
+	// 	summary: "Web App",
+	// 	href: urls.external.daniola,
+	// 	image_src: Daniola,
+	// 	alt: "Daniola",
+	// 	background_color: "#FDD9D9",
+	// },
 	{
 		title: "Ribbon Protocol",
 		summary: "Web App",
@@ -56,7 +75,9 @@ export default function RecentWorks() {
 							<Link
 								href={x.href}
 								target="_blank"
-								className="[&>div>img]:hover:scale-[1.2] lg:[&>div>img]:hover:scale-[1.18]"
+								className={
+									"[&>div>img]:hover:scale-[1.2] lg:[&>div>img]:hover:scale-[1.18] [&>div]:hover:!bg-primaryGray"
+								}
 							>
 								<div
 									style={{
