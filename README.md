@@ -43,7 +43,7 @@ Here are some of my notable projects:
 I'm open to collaborations, new projects, and networking opportunities. Feel free to reach out to me through the following channels:
 
 - Email: [ayomideosunsami@gmail.com](mailto:ayomideosunsami@gmail.com)
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/ayomide-osunsami-6440021b0/)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/ayomide-osunsami/)
 - Portfolio Website: [My Portfolio Website](https://ayomide-osunsami.vercel.app)
 
 Let's connect and create amazing software solutions together!
