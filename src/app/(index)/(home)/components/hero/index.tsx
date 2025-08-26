@@ -8,7 +8,7 @@ export default function Hero() {
 	return (
 		<div className="px-4 py-12 container mx-auto">
 			<h1 className="text-primaryBlue font-medium text-[min(7vw,52px)]  text-center">
-				Hi, I’m Ayo. Nice to meet you 👋🏼
+				Hi, I&apos;m Ayo. Nice to meet you 👋🏼
 			</h1>
 			<p className="text-center px-6 mt-3 text-[min(4vw,24px)]">
 				I design and code beautifully simple things, and I love what I

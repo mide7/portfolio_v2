@@ -76,7 +76,7 @@ export default function RecentWorks() {
 								href={x.href}
 								target="_blank"
 								className={
-									"[&>div>img]:hover:scale-[1.2] lg:[&>div>img]:hover:scale-[1.18] [&>div]:hover:!bg-primaryGray"
+									"[&>div>img]:hover:scale-[1.1] lg:[&>div>img]:hover:scale-[1.12] [&>div]:hover:!bg-primaryGray"
 								}
 							>
 								<div
