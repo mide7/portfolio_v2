@@ -1,4 +1,4 @@
-import Clients from "./components/clients";
+// import Clients from "./components/clients";
 import Hero from "./components/hero";
 import RecentWorks from "./components/recent-works";
 import Testimonials from "./components/testimonials";
