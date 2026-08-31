@@ -11,5 +11,6 @@ namespace NodeJS {
 		NEXT_PUBLIC_RECAPTCHA_SITE_KEY: string;
 		NEXT_PUBLIC_DISABLE_RECAPTCHA: string;
 		RECAPTCHA_SECRET_KEY: string;
+		NEXT_PUBLIC_DOMAIN: string;
 	}
 }

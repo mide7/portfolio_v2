@@ -13,6 +13,10 @@ export const metadata: Metadata = {
 	title: "Ayomide Osunsami | Software Engineer",
 	description:
 		"Experienced software engineer showcasing a portfolio of creative and responsive web projects. Specializing in user-centric design and modern frontend technologies.",
+	metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN),
+	alternates: {
+		canonical: "/",
+	},
 	verification: {
 		google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION_CODE,
 	},
@@ -33,7 +37,7 @@ export const metadata: Metadata = {
 		title: "Ayomide Osunsami | Software Engineer",
 		description:
 			"Experienced software engineer showcasing a portfolio of creative and responsive web projects. Specializing in user-centric design and modern frontend technologies.",
-		url: "https://ayomide-osunsami.vercel.app/",
+		url: process.env.NEXT_PUBLIC_DOMAIN,
 		type: "website",
 		images: [
 			{
@@ -59,7 +63,7 @@ export const metadata: Metadata = {
 		title: "Ayomide Osunsami | Software Engineer",
 		description:
 			"Experienced software engineer showcasing a portfolio of creative and responsive web projects. Specializing in user-centric design and modern frontend technologies.",
-		// url: "https://ayomide-osunsami.vercel.app/",
+		// url: process.env.NEXT_PUBLIC_DOMAIN,
 		// type: "website",
 		images: [
 			{
@@ -79,7 +83,6 @@ export const metadata: Metadata = {
 			},
 		],
 	},
-	metadataBase: new URL("https://ayomide-osunsami.vercel.app"),
 };
 
 export default function RootLayout({
