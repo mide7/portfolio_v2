@@ -1,9 +1,13 @@
-import { SendMessageSchema } from "@/schemas";
+import { SendMessageSchema, serviceOptions } from "@/schemas";
 
 export function sayHelloMail(input: SendMessageSchema) {
+  const serviceLabel =
+    serviceOptions.find((option) => option.value === input.service)?.label ??
+    input.service;
+
   return `
 
-  
+
    <!DOCTYPE html>
 <html>
 <head>
@@ -49,13 +53,15 @@ export function sayHelloMail(input: SendMessageSchema) {
     <div class="container">
         <h1>Contact Information</h1>
         <p><strong>Full Name:</strong> ${input.full_name}</p>
-        <p><strong>Email:</strong>${input.email}</p>
+        <p><strong>Email:</strong> ${input.email}</p>
+        <p><strong>Phone:</strong> ${input.phone}</p>
+        <p><strong>Service Needed:</strong> ${serviceLabel}</p>
         <p><strong>Message:</strong></p>
         <p>${input.message}</p>
     </div>
 </body>
 </html>
 
-   
+
    `;
 }

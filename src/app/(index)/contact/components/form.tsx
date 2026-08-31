@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
-import { SendMessageSchema, sendMessageSchema } from "@/schemas";
+import { SendMessageSchema, sendMessageSchema, serviceOptions } from "@/schemas";
 import { toast } from "react-toastify";
 import { ImSpinner2 } from "react-icons/im";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
 	const {
@@ -19,11 +20,27 @@ export default function ContactForm() {
 		resolver: zodResolver(sendMessageSchema),
 	});
 
+	const recaptchaDisabled =
+		process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === "true";
+
+	const recaptchaRef = useRef<ReCAPTCHA>(null);
+	const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
 	const onSubmit = handleSubmit(async (data) => {
+		if (!recaptchaDisabled && !captchaToken) {
+			toast.error("Please verify you're not a robot");
+			return;
+		}
+
 		try {
 			const res = await fetch("/api/contact", {
 				method: "POST",
-				body: JSON.stringify(data),
+				body: JSON.stringify({
+					...data,
+					recaptchaToken: recaptchaDisabled
+						? "recaptcha-disabled"
+						: captchaToken,
+				}),
 				headers: {
 					"Content-Type": "application/json",
 				},
@@ -36,6 +53,9 @@ export default function ContactForm() {
 			reset();
 		} catch (error: any) {
 			toast.error(error.message);
+		} finally {
+			recaptchaRef.current?.reset();
+			setCaptchaToken(null);
 		}
 	});
 
@@ -45,7 +65,7 @@ export default function ContactForm() {
 				Drop me a message
 			</h1>
 			<p className="text-gray-400 text-sm">
-				Am always looking for a next great project
+				I&apos;m always looking for the next great project
 			</p>
 
 			<form className="flex flex-col gap-4 w-full">
@@ -53,7 +73,7 @@ export default function ContactForm() {
 					<input
 						className={clsx(
 							"h-14 border rounded-md  px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
-							errors.email?.message?.toString()
+							errors.full_name?.message?.toString()
 								? "border-red-500"
 								: ""
 						)}
@@ -82,6 +102,48 @@ export default function ContactForm() {
 					</small>
 				</div>
 
+				<div className="w-full">
+					<input
+						type="tel"
+						className={clsx(
+							"h-14 border rounded-md px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
+							errors.phone?.message?.toString()
+								? "border-red-500"
+								: ""
+						)}
+						placeholder="Your phone number"
+						{...register("phone")}
+					/>
+					<small className="text-red-500 ml-1">
+						{errors.phone?.message?.toString()}
+					</small>
+				</div>
+
+				<div className="w-full">
+					<select
+						defaultValue=""
+						className={clsx(
+							"h-14 border rounded-md px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
+							errors.service?.message?.toString()
+								? "border-red-500"
+								: ""
+						)}
+						{...register("service")}
+					>
+						<option value="" disabled>
+							What do you need help with?
+						</option>
+						{serviceOptions.map((option) => (
+							<option key={option.value} value={option.value}>
+								{option.label}
+							</option>
+						))}
+					</select>
+					<small className="text-red-500 ml-1">
+						{errors.service?.message?.toString()}
+					</small>
+				</div>
+
 				<div>
 					<textarea
 						rows={5}
@@ -99,8 +161,21 @@ export default function ContactForm() {
 					</small>
 				</div>
 
+				{!recaptchaDisabled && (
+					<ReCAPTCHA
+						ref={recaptchaRef}
+						sitekey={
+							process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
+						}
+						onChange={(token) => setCaptchaToken(token)}
+						onExpired={() => setCaptchaToken(null)}
+					/>
+				)}
+
 				<button
-					disabled={isSubmitting}
+					disabled={
+						isSubmitting || (!recaptchaDisabled && !captchaToken)
+					}
 					type="submit"
 					className={clsx(
 						"place-self-end bg-primaryBlue rounded-full h-14 flex items-center justify-center  font-semibold text-white border-2 border-primaryBlue",

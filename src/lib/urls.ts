@@ -17,5 +17,7 @@ export const urls = {
 		cartall: "https://brilliant-cocada-60e05c.netlify.app/",
 		mygigspot: "https://www.mygigspot.com",
 		mygigspot_entertainer: "https://entertain.mygigspot.com",
+		dancity: "https://dancity.app",
+		powerdeals: "https://powerdeals.ng",
 	},
 };

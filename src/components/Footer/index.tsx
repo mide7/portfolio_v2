@@ -12,9 +12,6 @@ export default function Footer() {
       {/* NOTE: For small screens */}
       <div className="container mx-auto px-4 py-6 pb-8 space-y-6 sm:hidden">
         <hr />
-        <h2 className="text-center text-gray-400 font-normal">
-          Be sure to take a look at our Terms of Use and Privacy Policy
-        </h2>
         <div className="flex gap-6 items-center">
           <span className="text-primaryBlue">Contacts</span>
           <span className="flex items-center gap-6 w-full">
@@ -48,9 +45,7 @@ export default function Footer() {
 
       {/* NOTE: For big screens */}
       <div className="container mx-auto px-4 py-6 sm:grid grid-cols-3 justify-center  items-center hidden bg-white">
-        <h2 className="text-center text-gray-400 font-normal">
-          Be sure to take a look at our Terms of Use and Privacy Policy
-        </h2>
+        <span />
 
         <Link
           href={urls.home}

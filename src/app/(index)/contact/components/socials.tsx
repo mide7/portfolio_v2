@@ -13,8 +13,7 @@ export default function ContactSocials() {
         Get in Touch with Me
       </h1>
       <p className="text-gray-400 text-sm">
-        We appreciate each customer and we are proud that 60% of clients come
-        back to work with us again.
+        I&apos;m always up for hearing about new projects and ideas.
       </p>
       <SocialLinkAndIcon
         href={urls.external.me.tel}
@@ -29,7 +28,7 @@ export default function ContactSocials() {
         linkStyle={"font-medium active:motion-safe:animate-ping"}
       />
       <hr />
-      <h2 className="text-primaryBlue font-medium text-xl">Am on Socials</h2>
+      <h2 className="text-primaryBlue font-medium text-xl">Find Me on Socials</h2>
       <div className="grid grid-cols-2 max-w-xs gap-4 items-center">
         <SocialLinkAndIcon
           href={urls.external.me.twitter}
@@ -50,7 +49,7 @@ export default function ContactSocials() {
         <SocialLinkAndIcon
           href={urls.external.me.github}
           iconClass={"ri-github-fill"}
-          title={"Github"}
+          title={"GitHub"}
           linkStyle={
             "font-medium active:motion-safe:animate-ping text-gray-500 hover:text-gray-400"
           }

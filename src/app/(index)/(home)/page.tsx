@@ -1,15 +1,15 @@
-// import Clients from "./components/clients";
 import Hero from "./components/hero";
+import WorkHistory from "./components/work-history";
+import TechToolbox from "./components/tech-toolbox";
 import RecentWorks from "./components/recent-works";
-import Testimonials from "./components/testimonials";
 
 const Page = () => {
 	return (
 		<>
 			<Hero />
+			<WorkHistory />
+			<TechToolbox />
 			<RecentWorks />
-			{/* <Clients /> */}
-			<Testimonials />
 		</>
 	);
 };

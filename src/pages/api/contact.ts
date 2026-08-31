@@ -15,13 +15,38 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
+async function verifyRecaptcha(token: string) {
+	const params = new URLSearchParams({
+		secret: process.env.RECAPTCHA_SECRET_KEY ?? "",
+		response: token,
+	});
+
+	const res = await fetch(
+		`https://www.google.com/recaptcha/api/siteverify?${params.toString()}`,
+		{ method: "POST" }
+	);
+	const data = await res.json();
+	return data.success === true;
+}
+
 export default async function handler(
 	request: NextApiRequest,
 	response: NextApiResponse
 ) {
 	try {
-		console.log("here");
 		const data = sendMessageSchema.parse(request.body);
+
+		const recaptchaDisabled =
+			process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === "true";
+
+		if (!recaptchaDisabled) {
+			const isHuman = await verifyRecaptcha(data.recaptchaToken);
+			if (!isHuman) {
+				return response.status(422).json({
+					message: "reCAPTCHA verification failed. Please try again.",
+				});
+			}
+		}
 
 		try {
 			await transporter.sendMail({
