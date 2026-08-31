@@ -13,6 +13,9 @@ export const metadata: Metadata = {
 	title: "Ayomide Osunsami | Software Engineer",
 	description:
 		"Experienced software engineer showcasing a portfolio of creative and responsive web projects. Specializing in user-centric design and modern frontend technologies.",
+	verification: {
+		google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION_CODE,
+	},
 	keywords: [
 		"Software engineer",
 		"Full-stack developer",
