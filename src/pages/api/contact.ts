@@ -6,18 +6,41 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function verifyRecaptcha(token: string) {
-	const params = new URLSearchParams({
-		secret: process.env.RECAPTCHA_SECRET_KEY ?? "",
-		response: token,
-	});
+async function verifyRecaptcha(token: string): Promise<boolean> {
+	const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
-	const res = await fetch(
-		`https://www.google.com/recaptcha/api/siteverify?${params.toString()}`,
-		{ method: "POST" },
-	);
-	const data = await res.json();
-	return data.success === true;
+	if (!secretKey || !token) {
+		return false;
+	}
+
+	try {
+		const params = new URLSearchParams({
+			secret: secretKey,
+			response: token,
+		});
+
+		const res = await fetch(
+			"https://www.google.com/recaptcha/api/siteverify",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: params.toString(),
+			},
+		);
+
+		const data = await res.json();
+
+		if (!data.success) {
+			console.error("reCAPTCHA Error Codes:", data["error-codes"]);
+		}
+
+		return data.success === true;
+	} catch (error) {
+		console.error("reCAPTCHA verification failed:", error);
+		return false;
+	}
 }
 
 export default async function handler(
