@@ -49,7 +49,6 @@ export default async function handler(
 ) {
 	try {
 		const data = sendMessageSchema.parse(request.body);
-		console.debug(data);
 
 		const recaptchaDisabled =
 			process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === "true";
