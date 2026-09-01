@@ -4,27 +4,36 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
-import { SendMessageSchema, sendMessageSchema, serviceOptions } from "@/schemas";
+import {
+	SendMessageSchema,
+	sendMessageSchema,
+	serviceOptions,
+} from "@/schemas";
 import { toast } from "react-toastify";
 import { ImSpinner2 } from "react-icons/im";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
+	const recaptchaDisabled =
+		process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === "true";
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitting },
 		reset,
+		watch,
+		setValue,
 	} = useForm<SendMessageSchema>({
 		mode: "onChange",
 		resolver: zodResolver(sendMessageSchema),
+		defaultValues: {
+			recaptchaToken: recaptchaDisabled ? "recaptcha-disabled" : "",
+		},
 	});
 
-	const recaptchaDisabled =
-		process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === "true";
-
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
-	const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+	const captchaToken = watch("recaptchaToken");
 
 	const onSubmit = handleSubmit(async (data) => {
 		if (!recaptchaDisabled && !captchaToken) {
@@ -55,7 +64,9 @@ export default function ContactForm() {
 			toast.error(error.message);
 		} finally {
 			recaptchaRef.current?.reset();
-			setCaptchaToken(null);
+			if (!recaptchaDisabled) {
+				setValue("recaptchaToken", "");
+			}
 		}
 	});
 
@@ -68,6 +79,8 @@ export default function ContactForm() {
 				I&apos;m always looking for the next great project
 			</p>
 
+			{JSON.stringify({ captcha: errors.recaptchaToken?.message })}
+
 			<form className="flex flex-col gap-4 w-full">
 				<div>
 					<input
@@ -75,7 +88,7 @@ export default function ContactForm() {
 							"h-14 border rounded-md  px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
 							errors.full_name?.message?.toString()
 								? "border-red-500"
-								: ""
+								: "",
 						)}
 						placeholder="Your full name"
 						{...register("full_name")}
@@ -92,7 +105,7 @@ export default function ContactForm() {
 							"h-14 border rounded-md px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
 							errors.email?.message?.toString()
 								? "border-red-500"
-								: ""
+								: "",
 						)}
 						placeholder="Your email"
 						{...register("email")}
@@ -109,7 +122,7 @@ export default function ContactForm() {
 							"h-14 border rounded-md px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
 							errors.phone?.message?.toString()
 								? "border-red-500"
-								: ""
+								: "",
 						)}
 						placeholder="Your phone number"
 						{...register("phone")}
@@ -126,7 +139,7 @@ export default function ContactForm() {
 							"h-14 border rounded-md px-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
 							errors.service?.message?.toString()
 								? "border-red-500"
-								: ""
+								: "",
 						)}
 						{...register("service")}
 					>
@@ -151,7 +164,7 @@ export default function ContactForm() {
 							"border rounded-md p-3 w-full bg-transparent focus:border-primaryBlue text-gray-400 outline-none transition-all duration-500",
 							errors.message?.message?.toString()
 								? "border-red-500"
-								: ""
+								: "",
 						)}
 						placeholder="Your message"
 						{...register("message")}
@@ -167,8 +180,16 @@ export default function ContactForm() {
 						sitekey={
 							process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
 						}
-						onChange={(token) => setCaptchaToken(token)}
-						onExpired={() => setCaptchaToken(null)}
+						onChange={(token) =>
+							setValue("recaptchaToken", token ?? "", {
+								shouldValidate: true,
+							})
+						}
+						onExpired={() =>
+							setValue("recaptchaToken", "", {
+								shouldValidate: true,
+							})
+						}
 					/>
 				)}
 
@@ -182,7 +203,7 @@ export default function ContactForm() {
 						"transition-all duration-500",
 						"hover:text-primaryBlue hover:bg-white active:motion-safe:animate-ping",
 						"disabled:cursor-not-allowed disabled:bg-primaryBlue/50 disabled:text-white/70 disabled:border-primaryBlue/20",
-						"md:max-w-[160px] w-full"
+						"md:max-w-[160px] w-full",
 					)}
 				>
 					{isSubmitting ? (

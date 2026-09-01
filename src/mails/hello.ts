@@ -1,11 +1,11 @@
 import { SendMessageSchema, serviceOptions } from "@/schemas";
 
 export function sayHelloMail(input: SendMessageSchema) {
-  const serviceLabel =
-    serviceOptions.find((option) => option.value === input.service)?.label ??
-    input.service;
+	const serviceLabel =
+		serviceOptions.find((option) => option.value === input.service)
+			?.label ?? input.service;
 
-  return `
+	return `
 
 
    <!DOCTYPE html>

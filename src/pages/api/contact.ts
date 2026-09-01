@@ -2,18 +2,9 @@ import { sendMessageSchema } from "@/schemas";
 import { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 
-import nodemailer from "nodemailer";
-import { sayHelloMail } from "@/mails/hello";
+import { Resend } from "resend";
 
-const transporter = nodemailer.createTransport({
-	host: process.env.MAIL_HOST,
-	port: +process.env.MAIL_PORT,
-	secure: true,
-	auth: {
-		user: process.env.MAIL_USER,
-		pass: process.env.MAIL_PASSWORD,
-	},
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function verifyRecaptcha(token: string) {
 	const params = new URLSearchParams({
@@ -23,7 +14,7 @@ async function verifyRecaptcha(token: string) {
 
 	const res = await fetch(
 		`https://www.google.com/recaptcha/api/siteverify?${params.toString()}`,
-		{ method: "POST" }
+		{ method: "POST" },
 	);
 	const data = await res.json();
 	return data.success === true;
@@ -31,7 +22,7 @@ async function verifyRecaptcha(token: string) {
 
 export default async function handler(
 	request: NextApiRequest,
-	response: NextApiResponse
+	response: NextApiResponse,
 ) {
 	try {
 		const data = sendMessageSchema.parse(request.body);
@@ -49,11 +40,18 @@ export default async function handler(
 		}
 
 		try {
-			await transporter.sendMail({
-				from: process.env.MAIL_FROM,
-				to: process.env.MAIL_TO,
-				subject: `Hello ✔ - ${data.full_name}`,
-				html: sayHelloMail(data),
+			await resend.emails.send({
+				to: process.env.MY_EMAIL_ADDRESS,
+				template: {
+					id: process.env.RESEND_TEMPLATE_ID,
+					variables: {
+						full_name: data.full_name,
+						email: data.email,
+						phone: data.phone,
+						service: data.service,
+						message: data.message,
+					},
+				},
 			});
 		} catch (error) {
 			console.log(error);
