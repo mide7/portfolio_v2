@@ -79,7 +79,7 @@ export default function ContactForm() {
 				I&apos;m always looking for the next great project
 			</p>
 
-			{JSON.stringify({ captcha: errors.recaptchaToken?.message })}
+			{JSON.stringify({ token: captchaToken })}
 
 			<form className="flex flex-col gap-4 w-full">
 				<div>
