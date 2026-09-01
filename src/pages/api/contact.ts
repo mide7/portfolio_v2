@@ -49,6 +49,7 @@ export default async function handler(
 ) {
 	try {
 		const data = sendMessageSchema.parse(request.body);
+		console.debug(data);
 
 		const recaptchaDisabled =
 			process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === "true";
@@ -77,7 +78,7 @@ export default async function handler(
 				},
 			});
 		} catch (error) {
-			console.log(error);
+			console.error("Email sending failed:", error);
 			throw new Error("Something went wrong");
 		}
 
